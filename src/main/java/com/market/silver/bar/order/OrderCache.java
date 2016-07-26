@@ -44,8 +44,8 @@ public class OrderCache {
 
     private Map<OrderSummaryKey, List<Order>> getOrderGroups() {
         // Currently the order groups map is built every time when this method is called. But in case of
-        // high volume of orders, the performance could be improved by maintaining a single map of order
-        // groups at class level and keeping it in sync with 'ordersById'.
+        // high volume of orders, the performance could be improved by maintaining a map of order groups 
+        // at class level and keeping it in sync with 'ordersById'.
         return ordersById.values()
                 .stream()
                 .collect(groupingBy(this::createOrderSummaryKey,
